@@ -6,6 +6,11 @@ function getComputerChoice() {
     return item
 }
 
+function updateComputerChoice(text) {
+    const $computerChoice = document.querySelector('.computer-choice')
+    $computerChoice.textContent = text
+}
+
 function playRound(playerSelection) {
     const computerSelection = getComputerChoice()
     const $computerChoice = document.querySelector('.computer-choice')
@@ -38,7 +43,16 @@ function updateScores() {
     const $computerScore = document.querySelector('.computer-score');
     $playerScore.textContent = `Player score: ${playerScore}`
     $computerScore.textContent = `Computer score: ${computerScore}`
-    
+}
+
+function resetGame() {
+    playerScore = 0;
+    computerScore = 0;
+    updateScores();
+    const buttons = document.querySelectorAll('.input-button');
+    buttons.forEach(button => {button.disabled = false});
+    updateResultText('');
+    updateComputerChoice('');
 }
 
 function game() {
@@ -59,6 +73,8 @@ function game() {
             updateScores()
         })
     })
+    const $resetButton = document.querySelector('.reset-button');
+    $resetButton.addEventListener('click', resetGame)
 }
 
 let playerScore = 0;
