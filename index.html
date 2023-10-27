@@ -4,25 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="main.css">
 </head>
 <body>
-    <h1>Rock Paper Scissors!</h1>
-    <button class="reset-button">Reset</button>
-    <div>
-        <h3>Your choice</h3>
-        <button class="input-button">rock</button>
-        <button class="input-button">Paper</button>
-        <button class="input-button">Scissors</button>
-    </div>
-    <div>
-        <h3>Computer's choice</h3>
-        <span class="computer-choice"></span>
-    </div>
-    <h3 class="result-text"></h3>
-    <div>
-        <h3>Score</h3>
-        <span class="player-score">Player score: 0</span>
-        <span class="computer-score">Computer score: 0</span>
+    <div id="game">
+        <h1>Rock Paper Scissors!</h1>
+        <button class="button reset-button">Reset</button>
+        <div class="choices-container">
+            <div class="choices player-choices">
+                <h3>Your choice</h3>
+                <div>
+                    <button class="button input-button">Rock</button>
+                    <button class="button input-button">Paper</button>
+                    <button class="button input-button">Scissors</button>
+                </div>
+            </div>
+            <div class="choices">
+                <h3>Computer's choice</h3>
+                <span class="computer-choice"></span>
+            </div>
+        </div>
+        <h3 class="result-text"></h3>
+        <div>
+            <h3>Score</h3>
+            <span class="player-score">Player score: 0</span>
+            <span class="computer-score">Computer score: 0</span>
+        </div>
     </div>
 </body>
 <script src="index.js"></script>

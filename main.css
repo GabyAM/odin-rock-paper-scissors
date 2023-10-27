@@ -1,0 +1,96 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;700;800&display=swap');
+
+body {
+    background-color: #14213d;
+    display: flex;
+    justify-content: center;
+    font-family: 'Raleway', sans-serif;
+}
+
+#game {
+    width: 800px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+h1, h3, span, button {
+    color: white;
+}
+
+.choices h3{
+    color: black;
+}
+
+.computer-choice {
+    height: 35px;
+    width: 75px;
+    background-color: black;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    visibility: hidden;
+}
+
+.choices-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.button {
+    background-color: #fca311;
+    border-style: none;
+    border-radius: 6px;
+}
+
+.button.pressed{
+    background-color: black;
+}
+
+.button:disabled {
+    background-color: grey;
+}
+
+.reset-button {
+    display: flex;
+    align-self: flex-end;
+    align-items: center;
+    justify-content: center;
+    width: 150px;
+    height: 30px;
+    font-size: 18px;
+    font-weight: bold;
+    margin: 20px 0;
+}
+
+.choices {
+    background-color: snow;
+    width: 300px;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 10px;
+    justify-content: space-around;
+}
+
+.player-choices {
+    justify-content: space-around;
+}
+
+.player-choices div {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: center;
+    gap: 12px;
+}
+
+.input-button {
+    height: 20px;
+}

@@ -6,15 +6,20 @@ function getComputerChoice() {
     return item
 }
 
+function getInputButtons() {
+    return document.querySelectorAll('.input-button');
+}
+
 function updateComputerChoice(text) {
     const $computerChoice = document.querySelector('.computer-choice')
+    if (text === '') $computerChoice.style.visibility = "hidden";
+    else $computerChoice.style.visibility = "visible";
     $computerChoice.textContent = text
 }
 
 function playRound(playerSelection) {
     const computerSelection = getComputerChoice()
-    const $computerChoice = document.querySelector('.computer-choice')
-    $computerChoice.textContent = computerSelection
+    updateComputerChoice(computerSelection);
 
     if(playerSelection === computerSelection) {
         return('draw')
@@ -36,8 +41,9 @@ function updateResultText (text) {
 
 function updateScores() {
     if(playerScore === 3 || computerScore === 3) {
-        const buttons = document.querySelectorAll('.input-button');
+        const buttons = getInputButtons();
         buttons.forEach(button => {button.disabled = true})
+        updateResultText(playerScore === 3 ? 'The player wins the game' : 'The computer wins the game!');
     }
     const $playerScore = document.querySelector('.player-score');
     const $computerScore = document.querySelector('.computer-score');
@@ -55,10 +61,19 @@ function resetGame() {
     updateComputerChoice('');
 }
 
+function highlightButton(button) {
+    const buttons = getInputButtons();
+    buttons.forEach(button => {
+        button.classList.remove('pressed')
+    })
+    button.classList.add('pressed');
+}
+
 function game() {
-    const buttons = document.querySelectorAll('.input-button');
+    const buttons = getInputButtons();
     buttons.forEach(button => {
         button.addEventListener('click', (event) => {
+            highlightButton(button)
             const playerChoice = event.target.textContent.toLowerCase()
             const result = playRound(playerChoice)
             if(result === 'draw') {
